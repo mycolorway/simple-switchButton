@@ -28,9 +28,9 @@ simple-switchButton
 
 ```javascript
 simple.switchButton({
-    el: $('checkbox'),           // * 必须
+    el: $('.checkbox'),        // * 必须
     cls: "",                   // 额外的 class, 默认为空
-    animTime: 400             //动画时间，默认为400
+    animTime: 400              //动画时间，默认为400
 });
 ```
 
