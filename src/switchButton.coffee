@@ -28,22 +28,22 @@ class SwitchButton extends SimpleModule
       .insertBefore @el
     @switchToggle = @switch.find '.switch-toggle'
     @switchToggle.width(@switchToggle.height()) if @switchToggle.width() <= 0
-    @check(0) if @el.is(':checked')
+    @switchOn(0) if @el.is(':checked')
 
   _bind: ->
     @switch.on 'click.switchButton' , (e) =>
       time = @opts.animTime
-      if @el.is(':checked') then @uncheck(time) else @check(time)
+      if @el.is(':checked') then @switchOff(time) else @switchOn(time)
       @.trigger 'switch'
 
-  check: (t) ->
+  switchOn: (t) ->
     @el.prop 'checked', true
     @switch.addClass 'checked'
     @switchToggle.animate
       left: @switch.width() - @switchToggle.outerWidth()
     ,t
 
-  uncheck: (t) ->
+  switchOff: (t) ->
     @el.prop 'checked', false
     @switch.removeClass 'checked'
     @switchToggle.animate
