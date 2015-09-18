@@ -32,8 +32,11 @@ class SwitchButton extends SimpleModule
 
   _bind: ->
     @switch.on 'click.switchButton' , (e) =>
+      @el.click()
+
+    @el.on 'change.switchButton', (e) =>
       time = @opts.animTime
-      if @el.is(':checked') then @switchOff(time) else @switchOn(time)
+      if @el.is(':checked') then @switchOn(time) else @switchOff(time)
       @.trigger 'switch'
 
   switchOn: (t) ->
@@ -53,7 +56,8 @@ class SwitchButton extends SimpleModule
   destroy: ->
     @switch.remove()
     @el.show()
-    @el.removeData 'switchButton'
+      .removeData 'switchButton'
+      .off '.switchButton'
 
 switchButton = (opts) ->
   new SwitchButton(opts)
