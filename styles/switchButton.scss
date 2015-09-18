@@ -1,0 +1,22 @@
+.simple-switchButton {
+  width: 80px;
+  height: 40px;
+  position: relative;
+  background-color: #f1f1f1;
+  border:solid 1px #e2e2e2;
+  border-radius: 60px;
+  transition: background 0.4s;
+
+  .switch-toggle{
+    height: inherit;
+    position: absolute;
+    left: 1px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  &.checked {
+    background-color: #8ce196;
+  }
+}

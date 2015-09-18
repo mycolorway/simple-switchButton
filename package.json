@@ -1,0 +1,26 @@
+{
+  "name": "simple-switchButton",
+  "description": "The best project ever.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/TingMiao/simple-switchButton",
+  "author": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/TingMiao/simple-switchButton.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TingMiao/simple-switchButton/issues"
+  },
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "devDependencies": {
+    "grunt": "0.x",
+    "grunt-contrib-watch": "0.x",
+    "grunt-contrib-coffee": "0.x",
+    "grunt-contrib-sass": "0.x",
+    "grunt-contrib-jasmine": "0.x",
+    "grunt-umd": "2.x"
+  },
+  "keywords": []
+}

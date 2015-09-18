@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple SwitchButton Demo</title>
+    <meta charset="utf-8" />
+    <link media="all" rel="stylesheet" type="text/css" href="styles/switchButton.css" />
+    <style type="text/css">
+        html, body {
+            background:#F9F9F9;
+            padding: 0;
+            margin: 0;
+            font: 14px/1.6 "Lucida Grande", "Helvetica", sans-serif;
+            color: #333;
+        }
+        .wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            color: rgb(113, 113, 113);
+        }
+        header {
+            margin: 50px 0;
+            text-align: center;
+        }
+        section {
+            margin: 30px 0;
+        }
+
+        .simple-switchButton {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .example{
+            text-align: center;
+            margin: 25px auto;
+        }
+
+        .large-switch{
+            width: 160px;
+            height: 80px;
+        }
+
+        .middle-switch{
+            width: 100px;
+            height: 50px;
+        }
+
+        .small-switch{
+            width: 50px;
+            height: 25px;
+        }
+
+        .green.checked{
+            background-color: #7a9e70;
+        }
+
+        .red{
+            border-width: 3px;
+            background-color: white;
+            transition: border-color 0.4s;
+        }
+
+        .red .switch-toggle{
+            box-shadow: none;
+            height: 35px;
+            border: 2px white solid;
+            background-color: #e2e2e2;
+        }
+
+        .red.checked{
+            background-color: white;
+            border-color: #F09190;
+        }
+
+        .red.checked .switch-toggle{
+            background-color: #F09190;
+        }
+
+        .blue.checked{
+            background-color: #5bc0de;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <header>
+            <h1>Simple SwitchButton</h1>
+        </header>
+        <section>
+            <div class="example">
+                Checked by default:
+                <input class="check-box" type="checkbox" value="1" checked="checked" id="check-1">
+            </div>
+
+            <div class="example">
+                Unchecked by default:
+                <input class="check-box" type="checkbox" value="1" id="check-2">
+            </div>
+
+            <div class="example">
+                Different Size:
+                <input class="check-box" type="checkbox" value="1" id="check-3" data-class="large-switch">
+                <input class="check-box" type="checkbox" value="1" id="check-4" data-class="middle-switch">
+                <input class="check-box" type="checkbox" value="1" id="check-5" data-class="small-switch">
+            </div>
+
+            <div class="example">
+                Different Style:
+                <input class="check-box" type="checkbox" value="1" checked="checked" id="check-6" data-class="green">
+                <input class="check-box" type="checkbox" value="1" checked="checked" id="check-7" data-class="red">
+                <input class="check-box" type="checkbox" value="1" checked="checked" id="check-8" data-class="blue">
+            </div>
+
+        </section>
+    </div>
+    <script type="text/javascript" src="vendor/bower/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/bower/simple-module/lib/module.js"></script>
+    <script type="text/javascript" src="lib/switchButton.js"></script>
+    <script type="text/javascript">
+        $('.check-box').each(function(){
+            simple.switchButton({
+                el: this,
+                cls: $(this).data('class')
+            })
+        })
+
+    </script>
+</body>
+
+</html>
+
+
