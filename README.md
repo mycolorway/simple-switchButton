@@ -57,6 +57,6 @@ simple.switchButton({
 
 **switch**
 
-触发条件：checkbox的值发生改变。
+触发条件：开关的状态发生改变。
 
 
