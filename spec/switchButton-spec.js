@@ -4,7 +4,7 @@
   $checkEl = null;
 
   beforeEach(function() {
-    return $checkEl = $("<input type=\"checkbox\" value=\"1\" id=\"check-box\" data-class=\"large-switch\">");
+    return $checkEl = $("<input type=\"checkbox\" value=\"1\" id=\"check-box\">");
   });
 
   afterEach(function() {

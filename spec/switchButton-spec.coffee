@@ -2,7 +2,7 @@ $checkEl = null
 
 beforeEach ->
   $checkEl = $("""
-    <input type="checkbox" value="1" id="check-box" data-class="large-switch">
+    <input type="checkbox" value="1" id="check-box">
     """)
 
 afterEach ->

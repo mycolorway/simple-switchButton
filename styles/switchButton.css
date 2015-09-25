@@ -5,16 +5,22 @@
   background-color: #f1f1f1;
   border: solid 1px #e2e2e2;
   border-radius: 60px;
-  transition: background 0.4s;
+  transition: background-color 0.4s;
+  -webkit-transition: background-color 0.4s;
 }
 .simple-switchButton .switch-toggle {
-  height: inherit;
+  height: 100%;
   position: absolute;
-  left: 1px;
+  margin-left: 0;
   background-color: #fff;
   border-radius: 50%;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: margin-left 0.4s;
+  -webkit-transition: margin-left 0.4s;
 }
 .simple-switchButton.checked {
   background-color: #8ce196;
+}
+.simple-switchButton.checked .switch-toggle {
+  margin-left: 40px;
 }

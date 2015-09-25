@@ -14,8 +14,8 @@ class SwitchButton extends SimpleModule
     '''
 
   _init: ->
-    if @opts.el is null
-      throw new Error "[SwitchButton] - el is required"
+    unless $(@opts.el).is(':checkbox')
+      throw new Error "[SwitchButton] - el should be a checkbox"
     @_render()
     @_bind()
     @el.data 'switchButton', @
@@ -35,23 +35,16 @@ class SwitchButton extends SimpleModule
       @el.click()
 
     @el.on 'change.switchButton', (e) =>
-      time = @opts.animTime
-      if @el.is(':checked') then @switchOn(time) else @switchOff(time)
+      if @el.is(':checked') then @switchOn() else @switchOff()
       @.trigger 'switch'
 
   switchOn: (t) ->
     @el.prop 'checked', true
     @switch.addClass 'checked'
-    @switchToggle.animate
-      left: @switch.width() - @switchToggle.outerWidth()
-    ,t
 
   switchOff: (t) ->
     @el.prop 'checked', false
     @switch.removeClass 'checked'
-    @switchToggle.animate
-      left: 0
-    ,t
 
   destroy: ->
     @switch.remove()
