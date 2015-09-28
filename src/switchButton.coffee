@@ -18,36 +18,33 @@ class SwitchButton extends SimpleModule
       throw new Error "[SwitchButton] - el should be a checkbox"
     @_render()
     @_bind()
+    @checked = @el.is(':checked')
     @el.data 'switchButton', @
-    @switch.data 'switchButton', @
+    @switchButton.data 'switchButton', @
 
   _render: ->
     @el = $(@opts.el).hide()
-    @switch = $(SwitchButton._tpl.switch)
+    @switchButton = $(SwitchButton._tpl.switch)
       .addClass(@opts.cls)
       .insertBefore @el
-    @switchToggle = @switch.find '.switch-toggle'
-    @switchToggle.width(@switchToggle.height()) if @switchToggle.width() <= 0
-    @switchOn(0) if @el.is(':checked')
+    $switchToggle = @switchButton.find '.switch-toggle'
+    $switchToggle.width($switchToggle.height()) if $switchToggle.width() <= 0
+    @switch(true) if @el.is(':checked')
 
   _bind: ->
-    @switch.on 'click.switchButton' , (e) =>
+    @switchButton.on 'click.switchButton' , =>
       @el.click()
 
-    @el.on 'change.switchButton', (e) =>
-      if @el.is(':checked') then @switchOn() else @switchOff()
-      @.trigger 'switch'
+    @el.on 'change.switchButton', =>
+      if @el.is(':checked') then @switch(true) else @switch(false)
 
-  switchOn: (t) ->
-    @el.prop 'checked', true
-    @switch.addClass 'checked'
-
-  switchOff: (t) ->
-    @el.prop 'checked', false
-    @switch.removeClass 'checked'
+  switch: (flag = !@el.is(':checked')) ->
+    @el.prop 'checked', flag
+    @switchButton.toggleClass 'checked', flag
+#    @trigger 'switch', [@checked]
 
   destroy: ->
-    @switch.remove()
+    @switchButton.remove()
     @el.show()
       .removeData 'switchButton'
       .off '.switchButton'

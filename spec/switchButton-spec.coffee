@@ -52,6 +52,15 @@ describe 'Simple switchButton', ->
     expect($("body .simple-switchButton.checked").length).toBe(0)
     expect($checkEl.is(':checked')).toBe(false)
 
+    switchButton.switch()
+    expect($checkEl.is(':checked')).toBe(true)
+
+    switchButton.switch(true)
+    expect($checkEl.is(':checked')).toBe(true)
+
+    switchButton.switch(false)
+    expect($checkEl.is(':checked')).toBe(false)
+
   it "should add class correctly", ->
     $checkEl.appendTo("body")
     switchButton = simple.switchButton
