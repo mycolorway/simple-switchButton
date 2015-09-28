@@ -29,8 +29,7 @@ simple-switchButton
 ```javascript
 simple.switchButton({
     el: $('.checkbox'),        // * 必须
-    cls: "",                   // 额外的 class, 默认为空
-    animTime: 400              //动画时间，默认为400
+    cls: ""                   // 额外的 class, 默认为空
 });
 ```
 
@@ -40,13 +39,9 @@ simple.switchButton({
 
 #### 公共方法
 
-**switchOn(time)**
+**switch(Boolean: flag)**
 
-打开开关，time为开关动画执行的时间
-
-**switchOff(time)**
-
-关闭开关，time为开关动画执行的时间
+切换开关状态。flag 为 true 时开启开关，为 false 时关闭开关，不传入flag参数时，切换开关状态。
 
 **destroy()**
 
