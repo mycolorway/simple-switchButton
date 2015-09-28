@@ -41,7 +41,8 @@ class SwitchButton extends SimpleModule
   switch: (flag = !@el.is(':checked')) ->
     @el.prop 'checked', flag
     @switchButton.toggleClass 'checked', flag
-#    @trigger 'switch', [@checked]
+    @checked = flag
+    @triggerHandler 'switch', [@checked]
 
   destroy: ->
     @switchButton.remove()
