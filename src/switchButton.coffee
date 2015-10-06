@@ -16,20 +16,23 @@ class SwitchButton extends SimpleModule
   _init: ->
     unless $(@opts.el).is(':checkbox')
       throw new Error "[SwitchButton] - el should be a checkbox"
+
     @_render()
     @_bind()
-    @checked = @el.is(':checked')
-    @el.data 'switchButton', @
-    @switchButton.data 'switchButton', @
 
   _render: ->
     @el = $(@opts.el).hide()
+    @el.data('switchButton')?.destroy()
+
     @switchButton = $(SwitchButton._tpl.switch)
       .addClass(@opts.cls)
       .insertBefore @el
     $switchToggle = @switchButton.find '.switch-toggle'
     $switchToggle.width($switchToggle.height()) if $switchToggle.width() <= 0
-    @switch(true) if @el.is(':checked')
+    
+    @switch(true) if @checked = @el.is(':checked')
+    @el.data 'switchButton', @
+    @switchButton.data 'switchButton', @
 
   _bind: ->
     @switchButton.on 'click.switchButton' , =>
