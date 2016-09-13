@@ -45,6 +45,7 @@ class SwitchButton extends SimpleModule
     @el.prop 'checked', flag
     @switchButton.toggleClass 'checked', flag
     @checked = flag
+    @el.trigger 'change'
     @triggerHandler 'switch', [@checked]
 
   destroy: ->
