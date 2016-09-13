@@ -1,6 +1,6 @@
 {
   "name": "simple-switchButton",
-  "version": "0.1.0",
+  "version": "1.0.2",
   "homepage": "https://github.com/TingMiao/simple-switchButton",
   "authors": [
     "TingMiao <tingpan666@gmail.com>"
@@ -31,4 +31,3 @@
     "simple-module": "2.x"
   }
 }
-
