@@ -29,17 +29,17 @@ class SwitchButton extends SimpleModule
       .insertBefore @el
     $switchToggle = @switchButton.find '.switch-toggle'
     $switchToggle.width($switchToggle.height()) if $switchToggle.width() <= 0
-    
+
     @switch(true) if @checked = @el.is(':checked')
     @el.data 'switchButton', @
     @switchButton.data 'switchButton', @
 
   _bind: ->
     @switchButton.on 'click.switchButton' , =>
-      @el.click()
+      @switch()
 
-    @el.on 'change.switchButton', =>
-      if @el.is(':checked') then @switch(true) else @switch(false)
+    # @el.on 'change.switchButton', =>
+    #   if @el.is(':checked') then @switch(true) else @switch(false)
 
   switch: (flag = !@el.is(':checked')) ->
     @el.prop 'checked', flag
